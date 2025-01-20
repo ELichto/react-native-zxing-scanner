@@ -1,12 +1,19 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-zxing-scanner';
+import React from 'react';
+import { Text, View, StyleSheet, Button } from 'react-native';
+import { showQrReader } from 'react-native-zxing-scanner';
 
-const result = multiply(3, 7);
 
 export default function App() {
+  const [value, setValue] = React.useState<string | null>(null);
+
+  function readQr(): void {
+    showQrReader(setValue);
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result</Text>
+      <Button title='readQR' onPress={readQr} />
     </View>
   );
 }
