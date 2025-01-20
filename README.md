@@ -12,11 +12,12 @@ npm install react-native-zxing-scanner
 
 
 ```js
-import { multiply } from 'react-native-zxing-scanner';
+import { showQrReader } from 'react-native-zxing-scanner';
 
 // ...
 
-const result = multiply(3, 7);
+const [value, setValue] = useState('');
+showQrReader(setValue);
 ```
 
 
